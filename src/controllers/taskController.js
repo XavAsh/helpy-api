@@ -44,6 +44,7 @@ exports.getTasks = (req, res) => {
     res.status(200).json(results);
   });
 };
+
 exports.updateTask = (req, res) => {
   const { id } = req.params; // Task ID from the URL
   const { task_name, task_date, task_time, price } = req.body; // Fields to update
@@ -66,8 +67,9 @@ exports.updateTask = (req, res) => {
     res.status(200).json({ message: "Task updated successfully" });
   });
 };
+
 exports.deleteTask = (req, res) => {
-  const { id } = req.params; // Task ID from the URL
+  const { id } = req.params;
 
   const sql = `
     DELETE FROM tasks
